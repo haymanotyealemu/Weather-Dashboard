@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!--Bootstrap CSS CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <!--Main Bootstrap Searc-->
+    <div class="container">
+        <!--Jumbotron for Title-->
+        <div class="jumbotron mt-3 height" style="background-color: black ;color: white;height:20px;">
+            <h1 class="text-center">
+                <strong>
+                    Weather Dashboard
+                </strong>
+            </h1>
+        </div>
+        <!--Row for searching a city-->
+        <div class="row">
+            <div class="col-sm-4">
+                <!--First card is for handling the search city-->
+                <div class="card">
+                    <div class="card-body">
+                        <!--Here we create an HTML form for handling the inputs-->
+                        <form role="form">
+                            <!--Here we create the text box fro capturing the search city-->
+                            <div class="form-group">
+                                <strong>
+                                    <label for="search">Search for a City:</label>
+                                </strong>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="search-city">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-search btn btn-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
