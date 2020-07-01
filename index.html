@@ -10,15 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 </head>
 <body>
-    <!--Main Bootstrap Searc-->
+    <!--Main Bootstrap Search-->
     <div class="container">
         <!--Jumbotron for Title-->
-        <div class="jumbotron mt-3" style="background-color:#404040 ;color: white; height:10px">
-            <h1 class="text-center">
-                <strong>
-                    Weather Dashboard
-                </strong>
-            </h1>
+        <div class="jumbotron ml-2 mr-2 mt-2 text-center p-2" style="background-color:#404040 ;color: white;">
+            <h1> <strong>Weather Dashboard</strong></h1>
         </div>
         <!--Row for searching a city-->
         <div class="row">
@@ -35,9 +31,9 @@
                                 </strong>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="search-city">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-search btn btn-primary"></i>
-                                    </span>
+                                    <button class=" btn bg-primary text-light" id ="search-button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -46,7 +42,6 @@
                     <div class="card">
                         <div class="list-group list-group-flush">
                             <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                    
                         </div>
                     </div>
                 </div>
@@ -68,7 +63,8 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="future-weather">5 day forecast</div>
+                                <h3 class="future-weather">5-Day Forecast</h3>
+
                             </div>
                         </div>
                     </div>

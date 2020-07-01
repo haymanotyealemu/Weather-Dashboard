@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
  //Set the API key
     var APIKey= "7530ba507c7637bcaa306e843e0a6954";
     // This .on("click") function will trigger the AJAX Call
@@ -9,10 +9,23 @@ $(document).ready(function(){
         //Grab text the user typed into the search input, 
         var city= $("#search-city").val().trim();
         // Here we construct our URL
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + APIKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+        
+        
+        // Here we run our AJAX call to the OpenWeatherMap API
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response){
+            // Log the queryURL
+            console.log(queryURL);
+            // log the resulting object
+            console.log(response);
+
+        });
 
     });
 
-});
+
 
 
