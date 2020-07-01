@@ -13,7 +13,7 @@
     <!--Main Bootstrap Searc-->
     <div class="container">
         <!--Jumbotron for Title-->
-        <div class="jumbotron mt-3 height" style="background-color: black ;color: white;height:20px;">
+        <div class="jumbotron mt-3" style="background-color:#404040 ;color: white; height:10px">
             <h1 class="text-center">
                 <strong>
                     Weather Dashboard
@@ -42,7 +42,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <!--Second Card for handling search city history-->
+                    <div class="card">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -51,7 +52,31 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-8">
+                <!--Third card for Retrieved Current data will be dumped here-->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="city"></div>
+                        <div class="temperature"></div>
+                        <div class="humidity"></div>
+                        <div class="wind-speed"></div>
+                        <div class="uv-index"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="future-weather">5 day forecast</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!--jQuery JS-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!--Code to Jvascript File-->
+    <script type="text/Jvascript" src="script.js"></script>
 </body>
 </html>
