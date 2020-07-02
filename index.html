@@ -18,7 +18,7 @@
         </div>
         <!--Row for searching a city-->
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4 bg-light">
                 <!--First card is for handling the search city-->
                 <div class="card">
                     <div class="card-body">
@@ -48,22 +48,23 @@
             </div>
             <div class="col-sm-8">
                 <!--Third card for Retrieved Current data will be dumped here-->
-                <div class="card">
+                <div class="card" id="current-weather">
                     <div class="card-body">
-                        <div class="city"></div>
-                        <div class="temperature"></div>
-                        <div class="humidity"></div>
-                        <div class="wind-speed"></div>
-                        <div class="uv-index"></div>
+                        <h3 class="city mb-4" id="current-city"></h3>
+                        <p>Temperature:<span class="current" id="temperature"></span></p>
+                        <p>Humidity:<span class="current" id="humidity"></span></p> 
+                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                        <p>UV index:<span class="current bg-danger text-light rounded py-1 px-2" id="uv-index"></span></p> 
                     </div>
                 </div>
                 <br>
             <!--Row for future data to be dumped here-->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="card">
+                        <div class="card" id="future-weather">
                             <div class="card-body">
-                                <h3 class="future-weather">5-Day Forecast</h3>
+                                <h3>5-Day Forecast</h3>
+                                
 
                             </div>
                         </div>
