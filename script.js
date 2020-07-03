@@ -42,6 +42,34 @@ function currentWeather(city){
         console.log(response);
         // parse the response to display the current weather including the City name. the Date and the weather icon.
         var weathericon= response.weather[0].icon;
+        var iconurl="https://openweathermap.org/img/wn/"+weathericon +"@2x.png";
+        var date=new Date(response.dt*1000).toLocaleDateString();
+        $(currentCity).html(response.name +"("+date+")" + "<img src="+iconurl+">");
+        // parse the response to display the current temperature.
+        // Convert the temp to fahrenheit
+
+        var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+        $(currentTemperature).html((tempF).toFixed(2));
+        // Display the Humidity
+        $(currentHumidty).html(response.main.humidity+"%");
+        //Display Wind speed and convert to MPH
+        var ws=response.wind.speed;
+        var windsmph=(ws*2.237).toFixed(1);
+        $(currentWSpeed).html(windsmph+"MPH");
+        // Display UVIndex.
+        //By Geographic coordinates method and using appid and coordinates as a parameter we are going build our uv query url inside the function below.
+        function UVIndex(ln,lt){
+            //lets build the url for uvindex.
+            var uvqURL="https://openweathermap.org/data/2.5/uvi?appid="+ APIKey+"&lat="+lt+"&lon="+ln;
+            $.ajax({
+                url:uvqURL,
+                method:"GET"
+            }).then(function(response){
+                $(currentUvindex).html(response.value);
+            })
+        }
+
+    
 
 
     });
