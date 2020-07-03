@@ -87,7 +87,7 @@ function forecast(cityid){
             var forecastIndex = i*8 + 4;
             var forecastDate= new Date((response.list[forecastIndex].dt) * 1000).toLocaleDateString();
             var p= $("<p>");
-            p.addclass("forecast-date");
+            p.addClass("forecast-date");
             p.attr("style","mt-3 mb-0");
             p.text(forecastDate);
             forecastEls[i].append(p);
@@ -103,7 +103,22 @@ function forecast(cityid){
         }
     });
 }
+//Daynamically add the passed city on the search history
+function addToList(c){
+    var listEl= $("<li>"+c.toUpperCase()+"</li>");
+    $(listEl).attr("class","list-group-item");
+    $(listEl).attr("data-value",c.toUpperCase());
+    $(".list-group").append(listEl);
+}
+// display the past search again when the button is clicked in search history
+function invokePastSearch(event){
+    var liEl=event.target;
+    if (event.target.matches("li")){
+        city=liEl.textContent.trim();
+        currentWeather(city);
+    }
 
+}
 
 
 
