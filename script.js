@@ -58,22 +58,52 @@ function currentWeather(city){
         $(currentWSpeed).html(windsmph+"MPH");
         // Display UVIndex.
         //By Geographic coordinates method and using appid and coordinates as a parameter we are going build our uv query url inside the function below.
-        function UVIndex(ln,lt){
-            //lets build the url for uvindex.
-            var uvqURL="https://openweathermap.org/data/2.5/uvi?appid="+ APIKey+"&lat="+lt+"&lon="+ln;
-            $.ajax({
-                url:uvqURL,
-                method:"GET"
-            }).then(function(response){
-                $(currentUvindex).html(response.value);
-            })
-        }
-
-    
-
-
+        UVIndex(response.coord.lon,response.coord.lat);
+        forecast(response.id);
     });
 }
+    // This function returns the UVIindex response.
+function UVIndex(ln,lt){
+    //lets build the url for uvindex.
+    var uvqURL="https://openweathermap.org/data/2.5/uvi?appid="+ APIKey+"&lat="+lt+"&lon="+ln;
+    $.ajax({
+            url:uvqURL,
+            method:"GET"
+            }).then(function(response){
+                $(currentUvindex).html(response.value);
+            });
+}
+    
+// Here we display the 5 days forecast for the current city.
+function forecast(cityid){
+    var queryforcastURL="https://api.openweathermap.org/data/2.5/forecast?id="+ cityid+"&appid="+APIKey;
+    $.ajax({
+        url:queryforcastURL,
+        method:"GET"
+    }).then(function(response){
+        var forecastEls = $(".forecast");
+        for (var i=0; i< forecastEls.length; i++){
+            forecastEls[i].html = "";
+            var forecastIndex = i*8 + 4;
+            var forecastDate= new Date((response.list[forecastIndex].dt) * 1000).toLocaleDateString();
+            var p= $("<p>");
+            p.addclass("forecast-date");
+            p.attr("style","mt-3 mb-0");
+            p.text(forecastDate);
+            forecastEls[i].append(p);
+            var img =$("<img>");
+            var imgicon= img.attr("src","https://openweathermap.org/img/wn/" + response.list[forecastIndex].weather[0].icon + "@2x.png");
+            forecastEls[i].append(imgicon);
+            var forecastTemp= $("<p>");
+            var temp= forecastTemp.text("Temp:" + k2f(response.list[forecastIndex].main.temp) + " &#176F");
+            forecastEls[i].append(temp);
+            var forecastHum= $("<p>");
+            var humidity= forecastHum.text("Humidity:" + response.list[forecastIndex].main.humidity + "%");
+            forecastEls[i].append(humidity);
+        }
+    });
+}
+
 
 
 
