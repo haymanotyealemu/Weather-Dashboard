@@ -143,7 +143,7 @@ function invokePastSearch(event){
 }
 
 // render function
-function renderCities(){
+function loadlastCity(){
     $("ul").empty();
     var sCity = JSON.parse(localStorage.getItem("cityname"));
     if(sCity!==null){
@@ -156,9 +156,18 @@ function renderCities(){
     }
 
 }
+//Clear the search history from the page
+function clearHistory(event){
+    event.preventDefault();
+    sCity=[];
+    localStorage.removeItem("cityname");
 
-
-
+}
+//Click Handlers
+$("#search-button").on("click",displayWeather);
+$(document).on("click",invokePastSearch);
+$(window).on("load",loadlastCity);
+$("#clear-history").on("click",clearHistory);
 
 
 
