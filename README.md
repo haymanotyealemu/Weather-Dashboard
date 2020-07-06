@@ -24,6 +24,7 @@ How:
 * Finally when the user enters the city name  in the input box and press search button, “displayWeather” function will be fired up and current weather function will be call to display the current and 5-days forecast weather condition on the page.
 
 * Here you can run the application usin the following URL:  https://haymanotyealemu.github.io/Weather-Dashboard/
+![](image/screenshoot.PNG)
 
 
 
