@@ -28,6 +28,7 @@ If the user wants to see the past search city weather condition again, just clic
 ![](image/screenshoot.PNG)
 
 * Credits
+
   .https://openweathermap.org/api
   .https://getbootstrap.com/docs/4.5/getting-started/introduction/
   .https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
