@@ -22,7 +22,7 @@ function find(c){
 }
 //Set up the API key
 var APIKey="a0aca8a89948154a4182dcecc780b513";
-// Display the curent and future weather to the user after grabing the city form the input.
+// Display the curent and future weather to the user after grabing the city form the input text box.
 function displayWeather(event){
     event.preventDefault();
     if(searchCity.val().trim()!==""){
@@ -39,11 +39,14 @@ function currentWeather(city){
         method:"GET",
     }).then(function(response){
 
+        // parse the response to display the current weather including the City name. the Date and the weather icon. 
         console.log(response);
-        // parse the response to display the current weather including the City name. the Date and the weather icon.
+        //Dta object from server side Api for icon property.
         var weathericon= response.weather[0].icon;
         var iconurl="https://openweathermap.org/img/wn/"+weathericon +"@2x.png";
+        // The date format method is taken from the  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
         var date=new Date(response.dt*1000).toLocaleDateString();
+        //parse the response for name of city and concanatig the date and icon.
         $(currentCity).html(response.name +"("+date+")" + "<img src="+iconurl+">");
         // parse the response to display the current temperature.
         // Convert the temp to fahrenheit
@@ -126,7 +129,7 @@ function addToList(c){
     $(listEl).attr("data-value",c.toUpperCase());
     $(".list-group").append(listEl);
 }
-// display the past search again when the button is clicked in search history
+// display the past search again when the list group item is clicked in search history
 function invokePastSearch(event){
     var liEl=event.target;
     if (event.target.matches("li")){
